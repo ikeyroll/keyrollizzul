@@ -100,7 +100,25 @@ export const WindowsView = ({ onExit }: { onExit: () => void }) => {
   const [startMenuOpen, setStartMenuOpen] = useState(false);
 
   // Content Generators
-  const openPdf = () => addWindow({ id: 'cv', title: 'My CV.pdf - Viewer', content: <div className="text-center mt-20 text-gray-500 italic">CV Viewer Placeholder<br/>(Normally would open PDF)</div>, icon: <FileText size={14} /> });
+  const openPdf = () => addWindow({ 
+    id: 'cv', 
+    title: 'Khairol_Izzul_CV.pdf - Viewer', 
+    content: (
+      <div className="w-full h-full">
+        <iframe 
+          src="/documents/Khairol_Izzul_CV.pdf" 
+          className="w-full h-full border-0"
+          title="CV Viewer"
+        >
+          Your browser does not support PDFs. Please download the PDF to view it: 
+          <a href="/documents/Khairol_Izzul_CV.pdf">Download CV</a>
+        </iframe>
+      </div>
+    ), 
+    icon: <FileText size={14} />,
+    width: 900,
+    height: 700
+  });
   
   const openProjects = () => addWindow({ 
     id: 'projects', 

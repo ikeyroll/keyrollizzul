@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khairol 'Izzul Firdaus - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              xp: {
+                blue: '#003399',      // Login/Boot background
+                taskbar: '#245EDC',   // Taskbar standard blue
+                start: '#388E3C',     // Start button green
+                startHover: '#2E7D32',
+                window: '#0058E6',    // Window title bar
+                bg: '#53A3FF'         // Fallback sky blue
+              }
+            },
+            backgroundImage: {
+              'xp-bliss': 'linear-gradient(to bottom, #3b89e7 0%, #68a7f0 50%, #529ee6 51%, #236db6 100%)', // Simplified Bliss-like sky/ground feels
+              'xp-taskbar': 'linear-gradient(to bottom, #245EDC 0%, #3F8CF3 9%, #245EDC 18%, #245EDC 92%, #1941A5 100%)',
+              'xp-header': 'linear-gradient(to bottom, #0058E6 0%, #3A80F2 10%, #0058E6 100%)'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body { margin: 0; overflow-x: hidden; }
+      /* Custom scrollbar for better aesthetics */
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #f1f1f1; }
+      ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #555; }
+      
+      .xp-window-shadow {
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+      }
+      .font-tahoma {
+        font-family: Tahoma, Verdana, Segoe, sans-serif;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

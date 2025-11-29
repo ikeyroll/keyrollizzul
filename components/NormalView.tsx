@@ -142,9 +142,13 @@ export const NormalView = () => {
               >
                 View Projects
               </button>
-              <button className="px-6 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-xl font-semibold transition-all flex items-center gap-2">
+              <a 
+                href="/documents/Khairol_Izzul_CV.pdf" 
+                download="Khairol_Izzul_CV.pdf"
+                className="px-6 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-xl font-semibold transition-all flex items-center gap-2"
+              >
                 <Download size={18} /> Download CV
-              </button>
+              </a>
             </div>
           </motion.div>
 
@@ -155,7 +159,16 @@ export const NormalView = () => {
             className="relative"
           >
              <div className="relative z-10 w-full aspect-square max-w-md mx-auto bg-gradient-to-tr from-blue-100 to-indigo-100 dark:from-slate-800 dark:to-slate-700 rounded-[2rem] overflow-hidden shadow-2xl flex items-center justify-center">
-                 <span className="text-slate-400 dark:text-slate-500 text-xl font-medium">Profile Photo Placeholder</span>
+                 <img 
+                   src="/images/profile.png" 
+                   alt="Profile" 
+                   className="w-full h-full object-cover"
+                   onError={(e) => {
+                     const target = e.target as HTMLImageElement;
+                     target.onerror = null;
+                     target.alt = 'Profile image failed to load';
+                   }}
+                 />
              </div>
              {/* Floating Card */}
              <motion.div 

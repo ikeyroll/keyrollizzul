@@ -65,17 +65,119 @@ export const SKILLS: SkillCategory[] = [
   {
     id: 'project',
     title: 'Project Management',
-    skills: ['Project Planning', 'Requirement Gathering', 'Documentation', 'Risk Tracking', 'UAT', 'Client Communication', 'Agile/Scrum']
+    skills: [
+      'Agile/Scrum',
+      'Product Management',
+      'Team Leadership',
+      'Stakeholder Communication',
+      'Project Planning & Estimation',
+      'Requirement Gathering',
+      'Risk Management',
+      'Documentation',
+      'UAT Coordination',
+      'Client Communication'
+    ]
+  },
+  {
+    id: 'ai-ml',
+    title: 'AI/ML & Data Science',
+    skills: [
+      'Keras',
+      'OpenCV',
+      'TensorFlow/PyTorch',
+      'Scikit-learn',
+      'NLP (NLTK, spaCy)',
+      'Computer Vision',
+      'Deep Learning',
+      'Neural Networks',
+      'Data Analysis',
+      'Pandas/NumPy'
+    ]
   },
   {
     id: 'tech',
     title: 'Technical',
-    skills: ['HTML/CSS/JS', 'React/Next.js', 'Python', 'Java', 'PHP', 'MySQL', 'PostgreSQL', 'MongoDB', 'Firebase', 'IoT Basics', 'C++']
+    skills: [
+      'HTML/CSS/JavaScript',
+      'TypeScript',
+      'React/Next.js',
+      'Node.js',
+      'Python',
+      'Java',
+      'PHP',
+      'SQL/NoSQL',
+      'RESTful APIs',
+      'GraphQL',
+      'WebSockets',
+      'Microservices',
+      'Docker & Kubernetes',
+      'CI/CD Pipelines',
+      'AWS/GCP/Azure'
+    ]
+  },
+  {
+    id: 'test-auto',
+    title: 'Test Automation',
+    skills: [
+      'Selenium (Web Testing)',
+      'Appium (Mobile Testing)',
+      'Test Automation Frameworks',
+      'Cross-browser Testing',
+      'Mobile Testing',
+      'UI/UX Testing',
+      'Test Planning',
+      'Test Case Design',
+      'Bug Reporting',
+      'CI/CD Integration'
+    ]
+  },
+  {
+    id: 'xr',
+    title: 'XR Development',
+    skills: [
+      'Unity 3D',
+      'Unreal Engine',
+      'ARKit/ARCore',
+      'WebXR',
+      'Three.js',
+      'A-Frame',
+      '3D Modeling (Basics)',
+      'VR Development',
+      'AR Development'
+    ]
   },
   {
     id: 'tools',
-    title: 'Tools & Soft Skills',
-    skills: ['Jira', 'Trello', 'Notion', 'Git/GitHub', 'Figma', 'VS Code', 'Microsoft 365', 'Leadership', 'Public Speaking']
+    title: 'Tools & Platforms',
+    skills: [
+      'Git/GitHub',
+      'Jira',
+      'Trello',
+      'Notion',
+      'Figma',
+      'VS Code',
+      'Postman',
+      'Docker',
+      'Kubernetes',
+      'Microsoft 365',
+      'Google Workspace'
+    ]
+  },
+  {
+    id: 'soft',
+    title: 'Soft Skills',
+    skills: [
+      'Leadership',
+      'Public Speaking',
+      'Technical Writing',
+      'Mentoring',
+      'Problem Solving',
+      'Critical Thinking',
+      'Team Collaboration',
+      'Time Management',
+      'Adaptability',
+      'Creativity'
+    ]
   }
 ];
 

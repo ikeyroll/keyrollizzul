@@ -359,7 +359,7 @@ export const WindowsView = ({ onExit }: { onExit: () => void }) => {
       <div className="absolute inset-0 p-4 flex flex-col flex-wrap content-start gap-6 pb-12 z-0">
         <DesktopIcon label="My CV.pdf" icon={<FileText className="w-6 h-6 text-white fill-red-500" />} onClick={openPdf} />
         <DesktopIcon label="My Projects" icon={<Folder className="w-8 h-8 text-yellow-400 fill-yellow-400" />} onClick={openProjects} />
-        <DesktopIcon label="System Info" icon={<Monitor className="w-8 h-8 text-blue-200 fill-blue-600" />} onClick={openSkills} />
+        <DesktopIcon label="Keyroll Info" icon={<Monitor className="w-8 h-8 text-blue-200 fill-blue-600" />} onClick={openSkills} />
         <DesktopIcon label="User Manual" icon={<HelpCircle className="w-8 h-8 text-blue-100 fill-blue-500" />} onClick={openManual} />
       </div>
 

@@ -341,48 +341,48 @@ export const JOURNEY_STATIONS: Station[] = [
     id: 'school',
     title: 'School & Robotics',
     subtitle: 'The Beginning',
-    year: '2018',
-    points: ['Tokoh Pelajar Lelaki 2018', 'World Robot Olympiad 2nd Runner Up'],
+    year: '2014 - 2019',
+    points: ['School Life (SPM)','Tokoh Pelajar Lelaki 2018', 'World Robot Olympiad'],
     iconType: 'school'
   },
   {
     id: 'matric',
     title: 'Matriculation',
     subtitle: 'Foundation',
-    year: '2019',
-    points: ['KMPK', 'President of Peer Assisted Learning (PAL)'],
+    year: '2020 - 2021',
+    points: ['KMPK', 'Lockdown (Covid-19)', 'President of Peer Assisted Learning (PAL)'],
     iconType: 'users'
   },
   {
     id: 'uni',
     title: 'UTM Life',
     subtitle: 'Bachelor of Computer Science',
-    year: '2020 - 2023',
-    points: ['Software Engineering Major', 'President JKM KDOJ', 'Deans List'],
+    year: '2021 - 2025',
+    points: ['Degree Life (JB Style)', 'President JKM KDOJ', 'Program Management'],
     iconType: 'school'
-  },
-  {
-    id: 'projects',
-    title: 'Real World Projects',
-    subtitle: 'Getting Hands Dirty',
-    year: '2022 - 2023',
-    points: ['Deployed e-Stiker MPHS', 'Built SmartAC for Politeknik'],
-    iconType: 'code'
   },
   {
     id: 'ai',
     title: 'AI & Innovation',
     subtitle: 'Pushing Boundaries',
-    year: '2023 - Present',
-    points: ['ZIVA Project', 'Varsity Challenge Finalist', 'Deriv Chatbot'],
+    year: '2023 - 2025',
+    points: ['Hackathon', 'Conference', 'Exhibtions'],
     iconType: 'rocket'
+  },
+  {
+    id: 'projects',
+    title: 'Real World Projects',
+    subtitle: 'Getting Hands Dirty',
+    year: '2023 - Current',
+    points: ['Freelance Work', 'Founded Software Solutions Startup', 'Work with Big name such as MPHS, Politeknik and Razer'],
+    iconType: 'code'
   },
   {
     id: 'future',
     title: 'Next Step',
     subtitle: 'Open to Opportunities',
     year: 'Now',
-    points: ['Looking for Junior PM roles', 'Ready to lead tech teams'],
+    points: ['Aspiring Project Manager with a technical background', 'Ready to grow in project and product roles'],
     iconType: 'award'
   }
 ];

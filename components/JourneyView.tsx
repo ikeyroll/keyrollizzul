@@ -80,12 +80,14 @@ export const JourneyView = () => {
                         className="overflow-hidden bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700"
                       >
                         <div className="p-4">
-                           <ul className={`space-y-2 text-sm text-slate-600 dark:text-slate-300 ${isLeft ? 'md:text-right' : ''}`}>
+                           <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
                              {station.points.map((pt, i) => (
-                               <li key={i} className="flex items-center gap-2 md:justify-end">
-                                 {!isLeft && <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0 md:hidden"></span>}
-                                 {pt}
-                                 {isLeft && <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0 hidden md:inline-block"></span>}
+                               <li
+                                 key={i}
+                                 className={`flex items-center gap-2 ${isLeft ? 'md:flex-row-reverse md:text-right' : 'md:text-left'}`}
+                               >
+                                 <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                                 <span>{pt}</span>
                                </li>
                              ))}
                            </ul>
@@ -100,7 +102,7 @@ export const JourneyView = () => {
         </div>
         
         <div className="mt-20 text-center">
-            <p className="text-slate-500">End of current line. Next station: <span className="text-blue-600 font-bold">Your Team?</span></p>
+            <p className="text-slate-500">End of current line. Next station: <span className="text-blue-600 font-bold">Who Knows?</span></p>
         </div>
 
       </div>

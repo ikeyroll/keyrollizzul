@@ -351,44 +351,49 @@ export const NormalView = () => {
 };
 
 const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', message: '', contactMethod: 'email' });
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [feedback, setFeedback] = useState('');
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
     if (!formData.name.trim()) newErrors.name = 'Name is required.';
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required.';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email.';
-    }
     if (!formData.message.trim()) newErrors.message = 'Message is required.';
+    if (!formData.contactMethod) newErrors.contactMethod = 'Choose how you want to reach out.';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
-    setStatus('loading');
-    setFeedback('');
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
+    const baseMessage = `Hi, I'm ${formData.name}. ${formData.message}`;
+    let targetUrl: string | null = null;
 
-      if (!res.ok) throw new Error('Request failed');
-      setFormData({ name: '', email: '', message: '' });
+    switch (formData.contactMethod) {
+      case 'email':
+        targetUrl = `mailto:ikeyroll@gmail.com?subject=${encodeURIComponent('New project enquiry')}&body=${encodeURIComponent(baseMessage)}`;
+        break;
+      case 'whatsapp':
+        targetUrl = `https://wa.me/60122444675?text=${encodeURIComponent(baseMessage)}`;
+        break;
+      case 'telegram':
+        targetUrl = `https://t.me/keyrollizzul?text=${encodeURIComponent(baseMessage)}`;
+        break;
+      default:
+        break;
+    }
+
+    if (targetUrl) {
+      window.open(targetUrl, formData.contactMethod === 'email' ? '_self' : '_blank');
+      setFormData({ name: '', message: '', contactMethod: formData.contactMethod });
       setStatus('success');
-      setFeedback('Thanks, I will get back to you soon.');
-    } catch (err) {
+      setFeedback('Opening your selected channel. If nothing happens, please check your popup blocker.');
+    } else {
       setStatus('error');
-      setFeedback('Something went wrong. Please try again or reach me directly.');
+      setFeedback('Unable to open the selected channel. Please try again.');
     }
   };
 
@@ -425,21 +430,23 @@ const ContactForm: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-semibold text-slate-700 dark:text-slate-200">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="name@example.com"
-            value={formData.email}
-            onChange={e => setFormData({ ...formData, email: e.target.value })}
+          <label htmlFor="contactMethod" className="block text-sm font-semibold text-slate-700 dark:text-slate-200">Preferred channel</label>
+          <select
+            id="contactMethod"
+            name="contactMethod"
+            value={formData.contactMethod}
+            onChange={e => setFormData({ ...formData, contactMethod: e.target.value })}
             className={`w-full px-4 py-3 rounded-xl border bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white transition focus:ring-2 focus:ring-blue-500 outline-none ${
-              errors.email ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'
+              errors.contactMethod ? 'border-red-400' : 'border-slate-200 dark:border-slate-700'
             }`}
-            aria-invalid={!!errors.email}
-            aria-describedby={errors.email ? 'email-error' : undefined}
-          />
-          {errors.email && <p id="email-error" className="mt-1 text-xs text-red-500">{errors.email}</p>}
+            aria-invalid={!!errors.contactMethod}
+            aria-describedby={errors.contactMethod ? 'contact-method-error' : undefined}
+          >
+            <option value="email">Email</option>
+            <option value="whatsapp">WhatsApp</option>
+            <option value="telegram">Telegram</option>
+          </select>
+          {errors.contactMethod && <p id="contact-method-error" className="mt-1 text-xs text-red-500">{errors.contactMethod}</p>}
         </div>
 
         <div>
@@ -463,23 +470,10 @@ const ContactForm: React.FC = () => {
         <button
           type="submit"
           className="w-full py-3 rounded-xl font-semibold text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-100 disabled:opacity-70 disabled:cursor-not-allowed transition"
-          disabled={status === 'loading'}
         >
-          {status === 'loading' ? 'Sending...' : 'Send Message'}
+          Start Conversation
         </button>
       </form>
-
-      <div className="pt-4 border-t border-slate-100 dark:border-slate-700">
-        <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">Prefer WhatsApp? Tap here to chat.</p>
-        <a
-          href="https://wa.me/60122444675?text=Hi%20I%20saw%20your%20portfolio%20and%20want%20to%20ask%20about%20a%20project"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 w-full rounded-xl border border-green-200 bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-200 px-4 py-2 text-sm font-medium hover:bg-green-100 dark:hover:bg-green-900/30 transition"
-        >
-          <Phone className="w-4 h-4" /> Chat on WhatsApp
-        </a>
-      </div>
     </div>
   );
 };

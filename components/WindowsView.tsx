@@ -259,7 +259,8 @@ export const WindowsView = ({ onExit }: { onExit: () => void }) => {
         <div className="bg-white rounded-xl p-8 max-w-sm text-center">
           <Monitor className="w-12 h-12 text-blue-600 mx-auto mb-4" />
           <h2 className="text-xl font-bold mb-2">Desktop Only Experience</h2>
-          <p className="text-gray-600 mb-6">Windows XP mode is optimized for mouse and keyboard. Please switch back to normal view.</p>
+          <p className="text-gray-600 mb-2">Windows XP mode is optimized for mouse and keyboard. Please switch back to normal view.</p>
+          <p className="text-gray-500 mb-6 text-sm">P.S. If you're using a laptop and still see this message, try expanding your window for a better experience.</p>
           <button onClick={onExit} className="w-full py-3 bg-blue-600 text-white rounded-lg font-medium">Back to Normal View</button>
         </div>
       </div>
